@@ -1,0 +1,753 @@
+/* ==================================================== */
+/* 1. RÉGLAGES GLOBAUX & POLICES */
+/* ==================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+}
+
+/* Titres H1 et H2 principaux (utilisés en général sur les pages dédiées) */
+h1 {
+    font-size: 3rem;
+    color: #1d3c1d;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Conteneur pour limiter la largeur du contenu */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ---------------------------------------------------- */
+/* 2. NAVIGATION (FIXE) */
+/* ---------------------------------------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: #1d3c1d;
+    color: white;
+    z-index: 1000;
+    
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+}
+
+/* DÉCALAGE DU CONTENU PRINCIPAL SOUS LA NAVBAR FIXE */
+main {
+    /* La navbar fait environ 58px de haut */
+    padding-top: 58px; 
+}
+
+/* Logo */
+.logo a {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+/* Menu desktop */
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #c0e8c0; /* Couleur de survol pour actif */
+}
+
+/* Burger */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    z-index: 1001;
+}
+
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: 0.3s;
+}
+
+/* RESPONSIVE NAVBAR */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed; 
+        top: 58px; 
+        right: 0;
+        left: auto;
+        transform: none;
+        background: #1d3c1d;
+        width: 100%;
+        flex-direction: column;
+        text-align: right;
+        padding: 20px;
+        gap: 20px;
+        transform: translateX(100%);
+        transition: 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .burger {
+        display: flex;
+    }
+    
+    .logo {
+        z-index: 1001; /* S'assurer que le logo est au-dessus du menu replié */
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* 3. ELEMENTS COMMUNS (CTA, FOND) */
+/* ---------------------------------------------------- */
+
+.color-bg {
+    background-color: #f5f5f5;
+}
+
+/* CTA BANNER (utilisé dans about, services) */
+.cta-banner {
+    background-color: #1d3c1d; 
+    color: white;
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.cta-banner h3 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #c0e8c0; 
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: #c0e8c0;
+    color: #1d3c1d;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+.btn-cta:hover {
+    background-color: white;
+}
+
+
+/* ---------------------------------------------------- */
+/* 4. SECTION HERO (INDEX.HTML) */
+/* ---------------------------------------------------- */
+.hero {
+    position: relative;
+    width: 100%;
+    /* Hauteur initiale pour Desktop */
+    height: 700px; 
+    overflow: hidden;
+    padding-bottom: 0; 
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3); 
+    z-index: 5;
+}
+
+.hero img {
+    /* Mettre l'image en position absolue pour qu'elle agisse comme fond */
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* S'assurer qu'elle est derrière les contenus */
+}
+
+/* Conteneurs pour les textes et les contacts */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    max-width: 800px; 
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+    padding: 20px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.2); 
+    border-radius: 8px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; 
+    margin-bottom: 5px;
+    color: #c0e8c0; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    border-bottom: none;
+}
+
+.hero-content h2 {
+    font-size: 1.5rem; 
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+}
+
+.hero-contact {
+    position: absolute;
+    bottom: 50px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0,0,0,0.9); 
+    z-index: 10;
+}
+
+.hero-contact .phone {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.hero-contact a {
+    color: white;
+    text-decoration: none;
+}
+
+/* RESPONSIVE HERO - CORRECTION FLEXBOX POUR ÉVITER LE CONFLIT */
+@media (max-width: 768px) {
+    .hero { 
+        height: 500px; /* Hauteur ajustée pour mobile */
+        /* Activation de Flexbox pour gérer les éléments enfants */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centrer le contenu verticalement */
+        align-items: center;
+        padding: 0 10px; /* Ajouter un petit padding horizontal */
+        text-align: center;
+    }
+    
+    /* Le contenu principal et le contact doivent être positionnés normalement dans le flux Flex */
+    .hero-content {
+        position: static; /* Supprimer le positionnement absolu */
+        transform: none; /* Supprimer la transformation */
+        margin-top: -100px; /* Remonter le contenu un peu au-dessus du centre visuel */
+        max-width: 90%;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 15px;
+    }
+    
+    .hero-content h1 { 
+        font-size: 2rem; 
+    }
+    .hero-content h2 { 
+        font-size: 1.1rem; 
+        margin-bottom: 15px;
+    }
+    
+    /* Le bloc de contact suit le contenu principal */
+    .hero-contact { 
+        position: static; /* Supprimer le positionnement absolu */
+        transform: none; /* Supprimer la transformation */
+        margin-top: 20px; /* Ajouter de l'espace au-dessus */
+        padding: 5px 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+    }
+
+    .hero-contact .phone,
+    .hero-contact .mail {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+    
+    .hero-contact a {
+        font-size: 1.1rem; /* Rendre le numéro plus visible */
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* 5. SECTION SERVICES (INDEX.HTML) */
+/* ---------------------------------------------------- */
+.services {
+    padding: 60px 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.services .intro {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #333;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1 0 300px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    color: #1d3c1d;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE SERVICES */
+@media (max-width: 768px) {
+    .service-cards {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    .service-card { max-width: 90%; }
+}
+
+
+/* ---------------------------------------------------- */
+/* 6. SECTION QUI SOMMES-NOUS (INDEX.HTML & QUI-SOMMES-NOUS.HTML) */
+/* ---------------------------------------------------- */
+.about {
+    padding: 80px 20px; 
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about .intro {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.about-details,
+.container-section { /* Utiliser container-section pour la page dédiée */
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.detail-text {
+    flex: 1;
+}
+
+.detail-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Responsive Qui Sommes Nous / About */
+@media (max-width: 900px) {
+    .about-details,
+    .container-section,
+    .container-section.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .detail-text {
+        order: 2; 
+        text-align: left; /* Garder le texte lisible */
+    }
+
+    .detail-image {
+        order: 1; 
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* 7. PAGE SERVICES DÉDIÉE (SERVICES.HTML) */
+/* ---------------------------------------------------- */
+.page-hero {
+    background-color: #1d3c1d;
+    color: white;
+    padding: 80px 20px 60px;
+    text-align: center;
+}
+
+.page-hero h1 {
+    color: #c0e8c0; 
+}
+
+.page-hero .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: static;
+    transform: none;
+    background: none;
+    text-shadow: none;
+}
+
+.page-hero h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.service-detail {
+    padding: 60px 20px;
+}
+
+.container-service {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.container-service.reverse {
+    flex-direction: row-reverse;
+}
+
+.service-detail ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+
+.service-detail ul li {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    padding-left: 30px;
+    position: relative;
+}
+
+.service-detail ul li::before {
+    content: "🌿";
+    position: absolute;
+    left: 0;
+    font-size: 0.9em;
+    color: #1d3c1d;
+}
+
+.service-detail .detail-image img {
+    height: 300px; /* Taille fixe pour les images de service */
+    object-fit: cover;
+}
+
+
+/* Responsive Services.html */
+@media (max-width: 900px) {
+    .container-service,
+    .container-service.reverse {
+        flex-direction: column;
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* 8. PAGE CONTACT DÉDIÉE (CONTACT.HTML) - MODIFIÉ */
+/* ---------------------------------------------------- */
+.contact {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: white; 
+}
+
+/* Flexbox principal qui gère les deux colonnes */
+.contact-details-zone {
+    display: flex;
+    max-width: 1000px; /* Légèrement plus large que l'ancien container pour la flexbox */
+    margin: 40px auto; /* Ajout d'une marge pour séparer du titre */
+    gap: 40px;
+}
+
+/* Style de la page Contact dédiée (sans la div .contact-details-zone dans le HTML) */
+.contact .container {
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+.contact .intro {
+    margin-bottom: 30px;
+}
+
+/* Le conteneur d'informations dans la page CONTACT dédiée */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer verticalement dans la div */
+    gap: 10px; /* Espace entre téléphone et email */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f5f5f5; 
+    border-radius: 8px;
+    max-width: 500px; /* Limiter la largeur du bloc d'info */
+}
+
+.contact-info p {
+    margin: 0;
+}
+
+.contact-info .phone a,
+.contact-info .mail a {
+    color: #1d3c1d;
+    text-decoration: none;
+    font-size: 1.6rem; 
+    font-weight: bold;
+    transition: color 0.3s;
+    display: inline-block; 
+}
+
+.contact-info .phone a:before {
+    content: "📞 ";
+    font-size: 0.8em;
+}
+
+.contact-info .mail a:before {
+    content: "✉️ ";
+    font-size: 0.8em;
+}
+
+/* Zone Intervention dans la page Contact dédiée */
+.zone-intervention {
+    padding: 30px 0; 
+}
+
+.zone-intervention h3 {
+    font-size: 1.8rem;
+    color: #1d3c1d;
+    margin-bottom: 15px;
+}
+
+.zone-intervention .zone-intro {
+    margin-bottom: 20px;
+}
+
+.city-list {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0 auto; /* Centrer la liste */
+    columns: 2; 
+    max-width: 500px; /* Limiter la largeur pour que les colonnes fonctionnent bien */
+    text-align: left; /* Aligner le texte des villes à gauche dans les colonnes */
+}
+
+.city-list li {
+    font-size: 1.1rem;
+    color: #333;
+    padding: 5px 0;
+    line-height: 1.4;
+    text-align: center; /* Centrer le contenu du li */
+}
+
+
+/* Styles Spécifiques pour la page Index (où la structure est .contact-details-zone) */
+
+.contact-highlight {
+    flex: 1;
+    background-color: #f5f5f5; 
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center; /* Centrer le contenu du bloc */
+}
+
+.contact-highlight h3 {
+    font-size: 1.8rem;
+    color: #1d3c1d;
+    margin-bottom: 30px;
+}
+
+.info-group {
+    margin-bottom: 30px;
+}
+
+.info-group h4 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.info-group p {
+    margin: 0;
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+}
+
+.big-contact a {
+    color: #1d3c1d;
+    text-decoration: none;
+    font-size: 1.6rem; 
+    font-weight: bold;
+    transition: color 0.3s;
+    display: inline-block; 
+    max-width: 100%;
+}
+
+.big-contact a:hover {
+    color: #c0e8c0;
+}
+
+
+/* RESPONSIVE CONTACT */
+@media (max-width: 900px) {
+    /* Styles pour la page d'accueil (avec .contact-details-zone) */
+    .contact-details-zone { 
+        flex-direction: column;
+        gap: 30px;
+    }
+    .contact-highlight,
+    .zone-intervention { 
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Styles pour les deux pages (index et contact) */
+    .city-list {
+        columns: 1; /* Une seule colonne sur mobile */
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .big-contact a,
+    .contact-info .phone a,
+    .contact-info .mail a {
+        font-size: 1.4rem; 
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* 9. FOOTER */
+/* ---------------------------------------------------- */
+footer {
+    background: #1d3c1d;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #c0e8c0;
+}
+
+@media (max-width: 600px) {
+    footer .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-links {
+        flex-direction: column;
+    }
+}
