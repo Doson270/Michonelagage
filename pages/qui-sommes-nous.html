@@ -5,163 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qui sommes-nous ? | Michon Espace-Vert</title>
     <meta name="description" content="Découvrez l'équipe de Michon Espace-Vert, experts en élagage et entretien de jardins à Bordeaux et Gironde. Plus de 10 ans d'expérience et savoir-faire professionnel.">
+
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap" rel="stylesheet">
+
     <script src="/js/navbar.js" defer></script>
     <link rel="icon" type="image/png" href="/img/logo.png">
 
-
-    <!-- JSON-LD Schema Organisation et FAQ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Michon Espace-Vert",
-  "url": "https://michon-espace-vert.fr/qui-sommes-nous/",
-  "logo": "https://michon-espace-vert.fr/img/logo.jpg",
-  "description": "Michon Espace-Vert est une entreprise spécialisée dans l'élagage et l'entretien de jardins à Bordeaux. Notre équipe d'experts intervient pour particuliers et professionnels.",
-  "founder": {
-    "@type": "Person",
-    "name": "Michon Myron"
-  },
-  "sameAs": [
-    "https://www.facebook.com/michonespacevert",
-    "https://www.instagram.com/michonespacevert"
-  ]
-}
-</script>
-
-    <!-- FAQ sur l'entreprise -->
+    <!-- JSON-LD Schema Organisation -->
     <script type="application/ld+json">
     {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Michon Espace-Vert",
+      "url": "https://michon-espace-vert.fr/qui-sommes-nous/",
+      "logo": "https://michon-espace-vert.fr/img/logo.jpg",
+      "description": "Michon Espace-Vert est une entreprise spécialisée dans l'élagage et l'entretien de jardins à Bordeaux. Notre équipe d'experts intervient pour particuliers et professionnels.",
+      "founder": {
+        "@type": "Person",
+        "name": "Michon Myron"
+      },
+      "sameAs": [
+        "https://www.facebook.com/michonespacevert",
+        "https://www.instagram.com/michonespacevert"
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Michon Espace-Vert",
+      "image": "https://michon-espace-vert.fr/img/logo.jpg",
+      "description": "Contactez Michon Espace-Vert pour vos travaux d'élagage, abattage, entretien de jardin et taille de haies à Bordeaux et Gironde.",
+      "telephone": "07.71.05.79.95",
+      "email": "michonmyron16@gmail.com",
+      "url": "https://michon-espace-vert.fr/contact/",
+      "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bordeaux",
+          "addressLocality": "Bordeaux",
+          "addressRegion": "Aquitaine",
+          "postalCode": "33000",
+          "addressCountry": "FR"
+      },
+      "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "19:00"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD UNIQUE FAQPage (fusion des 2 FAQ) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-        "@type": "Question",
-        "name": "Depuis combien de temps votre entreprise existe-t-elle ?",
-        "acceptedAnswer": {
+          "@type": "Question",
+          "name": "Depuis combien de temps votre entreprise existe-t-elle ?",
+          "acceptedAnswer": {
             "@type": "Answer",
             "text": "Michon Espace-Vert a été fondée il y a plus de 10 ans et possède une expertise reconnue dans l'élagage et l'entretien des espaces verts."
-        }
+          }
         },
         {
-        "@type": "Question",
-        "name": "Votre équipe est-elle certifiée ?",
-        "acceptedAnswer": {
+          "@type": "Question",
+          "name": "Votre équipe est-elle certifiée ?",
+          "acceptedAnswer": {
             "@type": "Answer",
             "text": "Oui, tous nos élagueurs et jardiniers sont certifiés et formés aux dernières techniques d'élagage et entretien de jardins."
-        }
-        }
-    ]
-    }
-    </script>
-
-
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Michon Espace-Vert",
-    "image": "https://michon-espace-vert.fr/img/logo.jpg",
-    "description": "Contactez Michon Espace-Vert pour vos travaux d'élagage, abattage, entretien de jardin et taille de haies à Bordeaux et Gironde.",
-    "telephone": "07.71.05.79.95",
-    "email": "michonmyron16@gmail.com",
-    "url": "https://michon-espace-vert.fr/contact/",
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Bordeaux",
-        "addressLocality": "Bordeaux",
-        "addressRegion": "Aquitaine",
-        "postalCode": "33000",
-        "addressCountry": "FR"
-    },
-    "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"
-        ],
-        "opens": "08:00",
-        "closes": "19:00"
-    },
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+          }
+        },
         {
-        "@type": "Question",
-        "name": "Depuis combien de temps l’entreprise Michon Espace-Vert existe-t-elle ?",
-        "acceptedAnswer": {
+          "@type": "Question",
+          "name": "Depuis combien de temps l’entreprise Michon Espace-Vert existe-t-elle ?",
+          "acceptedAnswer": {
             "@type": "Answer",
             "text": "Michon Espace-Vert a été fondée il y a plus de 10 ans par Michon Myron, arboriste-grimpeur passionné."
-        }
+          }
         },
         {
-        "@type": "Question",
-        "name": "Quelle est l’expertise de votre équipe ?",
-        "acceptedAnswer": {
+          "@type": "Question",
+          "name": "Quelle est l’expertise de votre équipe ?",
+          "acceptedAnswer": {
             "@type": "Answer",
             "text": "Notre équipe est composée de professionnels certifiés, formés aux dernières techniques d'élagage raisonné, d’abattage sécurisé et d’entretien de grands sujets."
-        }
+          }
         },
         {
-        "@type": "Question",
-        "name": "Quels types de services proposez-vous ?",
-        "acceptedAnswer": {
+          "@type": "Question",
+          "name": "Quels types de services proposez-vous ?",
+          "acceptedAnswer": {
             "@type": "Answer",
             "text": "Nous proposons l’élagage, l’abattage, la taille de haies, l’entretien de gazon et l’aménagement d’espaces verts pour particuliers et entreprises."
-        }
+          }
         },
         {
-        "@type": "Question",
-        "name": "Comment garantissez-vous la sécurité lors des interventions ?",
-        "acceptedAnswer": {
+          "@type": "Question",
+          "name": "Comment garantissez-vous la sécurité lors des interventions ?",
+          "acceptedAnswer": {
             "@type": "Answer",
             "text": "Toutes nos interventions respectent les normes de sécurité et sont réalisées par des professionnels formés et équipés pour prévenir tout risque."
-        }
+          }
         },
         {
-        "@type": "Question",
-        "name": "Intervenez-vous sur des projets complexes ou particuliers ?",
-        "acceptedAnswer": {
+          "@type": "Question",
+          "name": "Intervenez-vous sur des projets complexes ou particuliers ?",
+          "acceptedAnswer": {
             "@type": "Answer",
             "text": "Oui, nous sommes spécialisés dans les interventions complexes comme l’élagage sur cordes, l’abattage d’arbres dangereux et la gestion de grands espaces verts."
-        }
+          }
         },
         {
-        "@type": "Question",
-        "name": "Pourquoi choisir Michon Espace-Vert ?",
-        "acceptedAnswer": {
+          "@type": "Question",
+          "name": "Pourquoi choisir Michon Espace-Vert ?",
+          "acceptedAnswer": {
             "@type": "Answer",
             "text": "Nous combinons expertise, sécurité et passion pour garantir des résultats professionnels et un service client de qualité dans tous vos projets d’entretien d’espaces verts."
+          }
         }
-        }
-    ]
+      ]
     }
     </script>
 
-
 </head>
+
 <body>
 <header>
     <nav class="navbar" aria-label="Menu principal">
         <div class="logo">
             <a href="/" aria-label="Accueil Michon Espace-Vert">Michon Élagage</a>
         </div>
+
         <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
+
         <ul class="nav-links">
             <li><a href="qui-sommes-nous.html">Qui sommes-nous ?</a></li>
             <li><a href="services.html" title="services">Services</a></li>
             <li><a href="contact.html">Contact</a></li>
-            
         </ul>
     </nav>
 </header>
@@ -178,6 +171,7 @@
                     <p>Depuis plus de 10 ans, Michon Michel et son équipe réalisent des interventions complexes : élagage sur cordes, abattage d'arbres dangereux et entretien de grands sujets.</p>
                     <p>Notre équipe est composée de professionnels certifiés, formés aux techniques d'élagage raisonné et aux soins des arbres. Nous intervenons pour particuliers, entreprises et copropriétés.</p>
                 </div>
+
                 <div class="detail-image">
                     <img src="/img/equipe.jpg" alt="Photo de l'équipe d'élagage professionnelle" loading="lazy">
                 </div>
@@ -195,5 +189,6 @@
 <footer>
     <p>&copy; 2025 Michon Espace-Vert. Tous droits réservés.</p>
 </footer>
+
 </body>
 </html>
